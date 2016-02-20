@@ -19,7 +19,10 @@ StackEdit stores your documents in your browser, which means all your documents 
 > - ***customer_registered***  End user who browses the products or seller and order the products added  in his cart.Will be called in this file as **REGISTERED CUSTOMER**
 > 
 > - ***customer_guest***  End user who browses the products or seller and order the products added  in his cart.Will be called in this file as **GUEST CUSTOMER**
- **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).
+ 
+![YuccaSay UML](http://i.imgur.com/L2aEVm4.png)
+
+
 
 #### <i class="icon-file"></i> Create a document
 
