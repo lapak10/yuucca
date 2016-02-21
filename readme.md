@@ -1,6 +1,9 @@
-YuccaSay.com (App Features)
+YuccaSay.com 
 ===================
-This file is feature list of for **YuccaSay.com** 
+>Features to develope for the version 0.1
+
+
+
 ![UML diagram of YuccaSay](http://i.imgur.com/L2aEVm4.png)
 ----------
 
@@ -21,7 +24,9 @@ StackEdit stores your documents in your browser, which means all your documents 
 > - ***customer_guest***  End user who browses the products or seller and order the products added  in his cart.Will be called in this file as **GUEST CUSTOMER**
 
 ---------- 
- 
+
+UserWise Functions.
+=
 #### SELLER
 > - Able to list his/her product.
 > - Choose the delivery_boy from the dropdown from available delivery boys.
