@@ -38,7 +38,7 @@ UserWise Functions.
 
 
 #### DELIVERY BOY
-> - Able to list his/her rate for delivery (currently is crossings) per order or per month (weight wise).
+> - Able to list his/her rate for delivery (currently in crossings) per order or per month (weight wise).
 > - Choose the delivery_boy from the dropdown from available delivery boys.
 > - Receives instant order detail and also gets notified when the order status is set to ‘ready_for_delivery’ or ‘cancelled_by_seller_single_person’
 > - Can change the order status [‘in_transit’,’delivered’,’returned_by_customer’,’customer_not_found’,’flat_locked’]
