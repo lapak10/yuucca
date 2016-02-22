@@ -15,7 +15,7 @@ Table of Contents
 Documents related the yuccasay
 
  - [Feature List](user_roles.md)
-
+ - [Custom Post Types](custom_post_types.md)
 
 
 
