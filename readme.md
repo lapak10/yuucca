@@ -1,18 +1,18 @@
-YuccaSay.com
-===================
->Be a brand.
 
-
-
-![UML diagram of YuccaSay](http://i.imgur.com/gbvcQGH.png)
-
+वसुधैव कुटुम्बकम् (The world is one family)
 ----------
 
 
-Table of Contents
--------------
+##### Getting Started
+- Installation
 
-Documents related the yuccasay
+
+
+
+
+
+
+
 
  - [Feature List](user_roles.md)
  - [Custom Post Types](custom_post_types.md)
@@ -25,7 +25,8 @@ Documents related the yuccasay
 
 
 
-##### wanna contribute?
+
+##### Get Involved
  - fork this document and add your feature and make a pull request to it.
 
 
