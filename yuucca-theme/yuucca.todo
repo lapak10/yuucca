@@ -1,0 +1,15 @@
+Main tasks todo:
+ ✔ check yuucca.com admin username and password; @critical  @done (16-03-12 02:57)
+ ✔ send a checking mail from wordpress (yuucca.com) to check if the mail is being delivered or not to anand.kmk@gmail.com @done (16-03-12 02:58)
+ ☐ design a better single-product.php page for better display of single item. @low 
+ ☐ check right aside behaviour in firefox (floating in extra right side of the screen) @low
+
+
+ App features:
+   ✔ New order notification mail are being sent. @done (16-03-12 03:17)
+
+
+
+
+App Modifications:
+  ☐ remove user icon and online status from the left sidebar.

@@ -1,0 +1,16 @@
+/*
+Theme Name: Yucca Shop
+Theme URI: http://example.com
+Author: Anand Kumar Chaudhary
+Author URI: https://example.com
+Description: It a custom theme designed to work with Anand's special yucca shop
+Version: 0.1
+License: GNU General Public License v2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+@import url('bootstrap/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('plugins/fullcalendar/fullcalendar.print.css');
+@import url('dist/css/AdminLTE.min.css');
+@import url('dist/css/skins/skin-blue-light.min.css');
