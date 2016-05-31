@@ -4,14 +4,14 @@ $prefix = get_product_prefix();
 //Lets fetch the current session variable (i.e our shopping CART
 $wp_session = get_cart();
 //global $wp_session;
-$total_cart_price=0;
+$total_cart_price = 0;
 
-$number_of_product_in_cart = get_count_products_cart( $wp_session );
-
-
+$number_of_product_in_cart = get_count_products_cart($wp_session);
 
 
-if($number_of_product_in_cart): ?>
+
+
+if ($number_of_product_in_cart): ?>
 
 
 
@@ -31,13 +31,13 @@ if($number_of_product_in_cart): ?>
                       
                       <?php 
 
-                        
-                      foreach($wp_session as $key=>$value): 
-                        $key_temp='';
+
+                      foreach ($wp_session as $key => $value):
+                        $key_temp = '';
 
                       if (substr($key, 0, strlen($prefix)) == $prefix) {
-                           $key_temp = substr($key, strlen($prefix));
-                        }
+                          $key_temp = substr($key, strlen($prefix));
+                      }
 
 
                        ?>
@@ -50,7 +50,7 @@ if($number_of_product_in_cart): ?>
 
                           <div class="pull-left">
                             <!-- User Image -->
-                            <img src="http://placehold.it/40x40<?php //echo get_post_meta( $key_temp , 'product_featured_image',true ); ?>" class="img-circle" alt="User Image">
+                            <img src="http://placehold.it/40x40<?php //echo get_post_meta( $key_temp , 'product_featured_image',true );?>" class="img-circle" alt="User Image">
                           </div>
                           <!-- Message title and timestamp -->
                           <h4>
@@ -61,7 +61,7 @@ if($number_of_product_in_cart): ?>
                           <p><?php echo 'Rs '.$value['price']; ?></p>
                         </a>
                       </li><!-- end message -->
-                      <?php $total_cart_price += (int)$value['price']*(int)$value['quantity']; ?>
+                      <?php $total_cart_price += (int) $value['price'] * (int) $value['quantity']; ?>
                      <?php endforeach; ?>
 
                     </ul><!-- /.menu -->
