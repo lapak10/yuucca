@@ -7,68 +7,66 @@ $prefix = get_product_prefix();
 
 
 //console_log($_POST);
-if(isset($_POST['submit']) AND $_POST['submit'] == 'save_new_order' AND wp_verify_nonce($_REQUEST['_wpnonce'],'page-checkout-place-order-form')){
-$wp_session = get_cart();
+if (isset($_POST['submit']) and $_POST['submit'] == 'save_new_order' and wp_verify_nonce($_REQUEST['_wpnonce'], 'page-checkout-place-order-form')) {
+    $wp_session = get_cart();
 // console_log("POST variable");
 // console_log($_POST);
 // console_log("our cart");
 // console_log($wp_session);
 // console_log('here we need to do the saving process of new order');
-$delivery_address = array(
-  'name'=>$_POST['customer_name'],
-  'flat'=>$_POST['customer_flat'],
-  'tower'=>$_POST['customer_tower'],
- 
-  'mobile'=>$_POST['customer_mobile']
-  );
+$delivery_address = [
+  'name'  => $_POST['customer_name'],
+  'flat'  => $_POST['customer_flat'],
+  'tower' => $_POST['customer_tower'],
+
+  'mobile' => $_POST['customer_mobile'],
+  ];
 
 
 
 
-$post_id = wp_insert_post(array('post_type'=>'yuccasay_order'));
+    $post_id = wp_insert_post(['post_type' => 'yuccasay_order']);
 
-$order_content = json_encode($wp_session);
+    $order_content = json_encode($wp_session);
 
-$my_post = array(
-     'post_title' => 'Order #'.$post_id ,
+    $my_post = [
+     'post_title' => 'Order #'.$post_id,
      //'post_date' => '',
      'post_content' => $order_content,
-     'post_status' => 'publish',
+     'post_status'  => 'publish',
      //'post_type' => 'yuccasay_order',
-  );
+  ];
 
 
-console_log($post_id);
+    console_log($post_id);
 
 
 
 
 
- add_post_meta($post_id, 'delivery_address_name', $_POST['customer_name'],true);
- add_post_meta($post_id, 'delivery_address_flat', $_POST['customer_flat'],true);
- add_post_meta($post_id, 'delivery_address_tower', $_POST['customer_tower'],true);
- add_post_meta($post_id, 'delivery_address_mobile', $_POST['customer_mobile'],true);
+    add_post_meta($post_id, 'delivery_address_name', $_POST['customer_name'], true);
+    add_post_meta($post_id, 'delivery_address_flat', $_POST['customer_flat'], true);
+    add_post_meta($post_id, 'delivery_address_tower', $_POST['customer_tower'], true);
+    add_post_meta($post_id, 'delivery_address_mobile', $_POST['customer_mobile'], true);
 
-wp_update_post(array_merge(array('ID'=>$post_id),$my_post));
- 
+    wp_update_post(array_merge(['ID' => $post_id], $my_post));
 
-shoot_mail($order_content);
-destroy_my_cart();
+
+    shoot_mail($order_content);
+    destroy_my_cart();
 
  //update_post_meta($post_id, 'META-KEY-2', 'META_VALUE-2', true
  // if($post_id){
  //  destroy_my_cart();
  // }
-
 }
 
 
 
-if(isset($_POST['submit']) AND wp_verify_nonce($_REQUEST['_wpnonce'],'farji_modal_update_form')){
-  
-$wp_session = get_cart();
+if (isset($_POST['submit']) and wp_verify_nonce($_REQUEST['_wpnonce'], 'farji_modal_update_form')) {
+    $wp_session = get_cart();
 
-  foreach($wp_session as $key => $value){
+    foreach ($wp_session as $key => $value) {
 
     //unset($value['quantity']);
     //unset($value['price']);
@@ -78,12 +76,12 @@ $wp_session = get_cart();
     //print_r($value);
 
 
-     $_SESSION['anand_store'][$key]['quantity'] = (int)$_POST[$key];
+     $_SESSION['anand_store'][$key]['quantity'] = (int) $_POST[$key];
 
-     echo "<script type='text/javascript'>console.log('The quantity of $key is now set to $_POST[$key]')</script>";
+        echo "<script type='text/javascript'>console.log('The quantity of $key is now set to $_POST[$key]')</script>";
     // //echo $key.'->'.$value['quantity'];
     // $wp_session[$key]['name'] = 'anand';
-}
+    }
 //$_SESSION['anand_store'] = $wp_session;
 //print_r($wp_session);
 }
@@ -92,16 +90,14 @@ $wp_session = get_cart();
 
 
 $wp_session = get_cart();
-if( ! get_count_products_cart () ){
-
-wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
-
+if (!get_count_products_cart()) {
+    wp_redirect(get_permalink(get_page_by_path('empty-cart')));
 }
 
 ?> 
-<?php get_template_part( 'template/header'); ?>
-<?php get_template_part( 'template/main_header'); ?>
-<?php get_template_part( 'template/left_nav_menu'); ?>
+<?php get_template_part('template/header'); ?>
+<?php get_template_part('template/main_header'); ?>
+<?php get_template_part('template/left_nav_menu'); ?>
      
 
       <!-- Content Wrapper. Contains page content -->
@@ -158,18 +154,18 @@ wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
 
 					<?php 
 
-					$count=0;
-          $key_temp='';
+                    $count = 0;
+          $key_temp = '';
           //var_dump($wp_session);
-					foreach($wp_session as $key=>$value): 
-						$count++; 
+                    foreach ($wp_session as $key => $value):
+                        $count++;
 
 
-					if (substr($key, 0, strlen($prefix)) == $prefix) {
-                           $key_temp = substr($key, strlen($prefix));
-          }
+                    if (substr($key, 0, strlen($prefix)) == $prefix) {
+                        $key_temp = substr($key, strlen($prefix));
+                    }
 
-					?>
+                    ?>
                       
 
 
@@ -179,7 +175,7 @@ wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
 
                 <tr>
                   <td><?php echo $count; ?></td>
-                  <td><img style="margin: auto 10px auto auto; width: 50px; height: 50px;" src="http://placehold.it/350x150<?php //echo get_post_meta( $key_temp , 'product_featured_image',true ); ?>" class='img-cicle' alt="Product Image">
+                  <td><img style="margin: auto 10px auto auto; width: 50px; height: 50px;" src="http://placehold.it/350x150<?php //echo get_post_meta( $key_temp , 'product_featured_image',true );?>" class='img-cicle' alt="Product Image">
                 <a href="<?php echo get_post_permalink($key_temp); ?>"><strong><?php echo $value['name']; ?></strong></a></td>
                   <td >
                     <div data-toggle="tooltip" title="Delivery boy is in the way!" class="progress progress-xs progress-striped active">
@@ -187,8 +183,8 @@ wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
                     </div>
                   </td>
                   <td><?php echo 'Rs '.$value['price']; ?></td>
-                  <td><?php echo $value['quantity'];//$value['quantity']; ?></td>
-                  <td><?php echo 'Rs '.(int)$value['quantity'] * (int)$value['price']; ?></td>
+                  <td><?php echo $value['quantity']; //$value['quantity'];?></td>
+                  <td><?php echo 'Rs '.(int) $value['quantity'] * (int) $value['price']; ?></td>
                   </tr>
               
 				<?php endforeach; ?>
@@ -202,7 +198,7 @@ wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
  				 
  					 <button type="button" class="btn btn-flat btn-primary" data-toggle='modal' data-target='#edit_cart' ><span class="glyphicon glyphicon-edit"></span> edit cart</button>
 </div>
-<small class='pull left'><?php echo apply_filters( 'checkout_terms_message', 'by clicking place order you agree our <a href="">terms and conditions.</a>' ); ?></small>
+<small class='pull left'><?php echo apply_filters('checkout_terms_message', 'by clicking place order you agree our <a href="">terms and conditions.</a>'); ?></small>
 
            </div>
           </div>
@@ -263,5 +259,5 @@ wp_redirect( get_permalink ( get_page_by_path( 'empty-cart' ))  );
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-<?php get_template_part('template/farji_modal' ); ?>
-<?php get_template_part( 'template/main_footer' ); ?>
+<?php get_template_part('template/farji_modal'); ?>
+<?php get_template_part('template/main_footer'); ?>

@@ -1,6 +1,6 @@
-<?php get_template_part( 'template/header'); ?>
-<?php get_template_part( 'template/main_header'); ?>
-<?php get_template_part( 'template/left_nav_menu'); ?>
+<?php get_template_part('template/header'); ?>
+<?php get_template_part('template/main_header'); ?>
+<?php get_template_part('template/left_nav_menu'); ?>
 
       
 
@@ -26,4 +26,4 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
-<?php get_template_part( 'template/main_footer' ); ?>
+<?php get_template_part('template/main_footer'); ?>

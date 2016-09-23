@@ -1,49 +1,51 @@
 <?php
 /**
- * yucca_shopAceCustomFieldType, for the  Admin Page Framework by Michael Uno, is written by Per Soderlind - http://soderlind.no
+ * yucca_shopAceCustomFieldType, for the  Admin Page Framework by Michael Uno, is written by Per Soderlind - http://soderlind.no.
  */
-if ( ! class_exists( 'yucca_shopAceCustomFieldType' ) ) :
-class yucca_shopAceCustomFieldType extends yucca_shopAdminPageFramework_FieldType {
-
+if (!class_exists('yucca_shopAceCustomFieldType')) :
+class yucca_shopAceCustomFieldType extends yucca_shopAdminPageFramework_FieldType
+{
     /**
      * Defines the field type slugs used for this field type.
      */
-    public $aFieldTypeSlugs = array( 'ace', );
+    public $aFieldTypeSlugs = ['ace'];
 
     /**
      * Defines the default key-values of this field type settings.
      *
      * @remark\ $_aDefaultKeys holds shared default key-values defined in the base class.
      */
-    protected $aDefaultKeys = array(
-        'attributes'    =>  array(
+    protected $aDefaultKeys = [
+        'attributes'    => [
             'cols'        => 60,
             'rows'        => 4,
-        ),
-        'options'   => array(
+        ],
+        'options'   => [
             'language'              => 'css',
             'theme'                 => 'chrome',
             'gutter'                => false,
             'readonly'              => false,
             'fontsize'              => 12,
-        ),
-    );
+        ],
+    ];
 
 
     /**
      * Loads the field type necessary components.
      */
-    public function setUp() {
-        wp_enqueue_script( 'jquery' );
+    public function setUp()
+    {
+        wp_enqueue_script('jquery');
     }
 
     /**
      * Returns an array holding the urls of enqueuing scripts.
      */
-    protected function getEnqueuingScripts() {
-        return array(
-            array( 'src'    => ( is_ssl() ? 'https:' : 'http:' ) . '//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js', 'dependencies'    => array( 'jquery' ) ),
-            /**
+    protected function getEnqueuingScripts()
+    {
+        return [
+            ['src'    => (is_ssl() ? 'https:' : 'http:').'//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js', 'dependencies'    => ['jquery']],
+            /*
              * If you'd like to use a local ace library:
              *
              * 1) Go to the same folder as this file
@@ -52,19 +54,21 @@ class yucca_shopAceCustomFieldType extends yucca_shopAdminPageFramework_FieldTyp
              * 4) Uncomment the line below this comment section
              */
             //array( 'src'    => dirname( __FILE__ ) . '/ace-builds/src-min-noconflict/ace.js', 'dependencies'    => array( 'jquery' ) ),
-        );
+        ];
     }
 
-    protected function getEnqueuingStyles() {
-        return array();
+    protected function getEnqueuingStyles()
+    {
+        return [];
     }
 
     /**
      * Returns the field type specific JavaScript script.
      */
-    protected function getScripts() {
+    protected function getScripts()
+    {
+        $_aJSArray = json_encode($this->aFieldTypeSlugs);
 
-        $_aJSArray = json_encode( $this->aFieldTypeSlugs );
         return "jQuery( document ).ready( function(){
             var getWidth = function( oElement ){
                 var _oClone = oElement.clone();
@@ -158,42 +162,44 @@ class yucca_shopAceCustomFieldType extends yucca_shopAdminPageFramework_FieldTyp
     /**
      * Returns the field type specific CSS rules.
      */
-    protected function getStyles() {
-        return "/*Ace editor Custom Field Type*/
+    protected function getStyles()
+    {
+        return '/*Ace editor Custom Field Type*/
             .ace_editor {
                     position: relative !important;
                     border: 1px solid lightgray;
             }
-        "  . PHP_EOL;
-     }
+        '.PHP_EOL;
+    }
 
     /**
      * Returns the output of the field type.
      */
-    public function getField( $aField ) {
-
-        $aInputAttributes = array();
+    public function getField($aField)
+    {
+        $aInputAttributes = [];
         foreach ($aField['options'] as $key => $value) {
-            if (false === $value) $value = 0;
-            $aInputAttributes['data-ace_' . $key] = $value;
+            if (false === $value) {
+                $value = 0;
+            }
+            $aInputAttributes['data-ace_'.$key] = $value;
         }
-        unset( $aField['attributes']['value'] );
-        $aInputAttributes =  array_merge($aInputAttributes, $aField['attributes']);
+        unset($aField['attributes']['value']);
+        $aInputAttributes = array_merge($aInputAttributes, $aField['attributes']);
 
         return
             $aField['before_label']
-            . "<div class='yucca-shop-input-label-container'>"
-                . "<label for='{$aField['input_id']}'>"
-                    . $aField['before_input']
-                    . "<textarea " . $this->generateAttributes( $aInputAttributes  ) . " >" 
-                            . $aField['value']
-                    . "</textarea>"
-                    . $aField['after_input']
-                . "</label>"
-                . "<div class='repeatable-field-buttons'></div>"
-            . "</div>"
-            . $aField['after_label']
-            ;
+            ."<div class='yucca-shop-input-label-container'>"
+                ."<label for='{$aField['input_id']}'>"
+                    .$aField['before_input']
+                    .'<textarea '.$this->generateAttributes($aInputAttributes).' >'
+                            .$aField['value']
+                    .'</textarea>'
+                    .$aField['after_input']
+                .'</label>'
+                ."<div class='repeatable-field-buttons'></div>"
+            .'</div>'
+            .$aField['after_label'];
     }
 }
 endif;

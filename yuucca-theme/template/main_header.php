@@ -27,9 +27,9 @@
         <!-- Logo -->
         <a href="" class="logo visible-md visible-lg hidden-xs hidden-sm">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b><?php echo AdminPageFramework::getOption( 'APF_CreatePage','yucca_shop_title_half_dark','D' ); ?></b><?php echo AdminPageFramework::getOption( 'APF_CreatePage','yucca_shop_title_half_light','T' ); ?></span>
+          <span class="logo-mini"><b><?php echo AdminPageFramework::getOption('APF_CreatePage', 'yucca_shop_title_half_dark', 'D'); ?></b><?php echo AdminPageFramework::getOption('APF_CreatePage', 'yucca_shop_title_half_light', 'T'); ?></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b><?php echo AdminPageFramework::getOption( 'APF_CreatePage','yucca_shop_title_full_dark','Demo'); ?></b><?php echo AdminPageFramework::getOption( 'APF_CreatePage','yucca_shop_title_full_light','Title' ); ?></span>
+          <span class="logo-lg"><b><?php echo AdminPageFramework::getOption('APF_CreatePage', 'yucca_shop_title_full_dark', 'Demo'); ?></b><?php echo AdminPageFramework::getOption('APF_CreatePage', 'yucca_shop_title_full_light', 'Title'); ?></span>
         </a>
 
         <!-- Header Navbar -->
@@ -39,16 +39,16 @@
             <span class="sr-only">Toggle navigation</span>
           </a>
 
-      <a class="navbar-brand visible-xs visible-sm hidden-md hidden-lg" href="http://yuucca.com"><strong><?php echo AdminPageFramework::getOption( 'APF_CreatePage','yucca_shop_title_full_light','Title' ); ?></strong></a>
+      <a class="navbar-brand visible-xs visible-sm hidden-md hidden-lg" href="http://yuucca.com"><strong><?php echo AdminPageFramework::getOption('APF_CreatePage', 'yucca_shop_title_full_light', 'Title'); ?></strong></a>
   
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
             
             <ul class="nav navbar-nav">
             
-            <?php get_template_part( 'template/main_header_cart'); ?>
+            <?php get_template_part('template/main_header_cart'); ?>
 
-              <?php if(false): ?>
+              <?php if (false): ?>
               <!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu">
                 <!-- Menu toggle button -->

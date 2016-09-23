@@ -4,7 +4,7 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
 
-          <?php get_template_part( 'template/left_nav_menu_user_panel'); ?>
+          <?php get_template_part('template/left_nav_menu_user_panel'); ?>
           
 
           <!-- /.search form -->
@@ -31,15 +31,15 @@
               </ul>
             </li>
           </ul> -->
-		<?php wp_nav_menu( array( 
+		<?php wp_nav_menu([
 
-		'theme_location' => 'left_aside_menu',
-		'container'=>false,
-		'menu_class'=>'sidebar-menu',
-		'link_before' => '<i class="fa fa-link"></i><span>',
-		'link_after' => '</span>'
-		
-		)); ?>
+        'theme_location' => 'left_aside_menu',
+        'container'      => false,
+        'menu_class'     => 'sidebar-menu',
+        'link_before'    => '<i class="fa fa-link"></i><span>',
+        'link_after'     => '</span>',
+
+        ]); ?>
           <!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

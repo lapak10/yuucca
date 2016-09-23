@@ -33,15 +33,15 @@ global $wp_session;
 
           <?php 
 
-          $count=0;
+          $count = 0;
 
-          foreach($wp_session as $key=>$value): 
-            $count++; 
+          foreach ($wp_session as $key => $value):
+            $count++;
 
           if (substr($key, 0, strlen($prefix)) == $prefix) {
-                           $key = substr($key, strlen($prefix));
+              $key = substr($key, strlen($prefix));
           }
-          
+
           ?>
                       
 
@@ -49,10 +49,10 @@ global $wp_session;
 
           <form action="" id='farji_modal_form' method='post'>
           <tr name='<?php echo $prefix.$key; ?>' class='product_tr'>
-                  <td name='count'><?php echo $count;?></td>
+                  <td name='count'><?php echo $count; ?></td>
                   <td><a href="<?php echo get_post_permalink($key); ?>"><strong><?php echo $value['name']; ?></strong></a></td>
                   <td><span class='quantity'><?php echo $value['quantity']; ?></span> x <span class='price'><?php echo $value['price']; ?></span></td>
-                  <td><span class='total_amount'><?php echo (int)$value['quantity'] * (int)$value['price']; ?></span></td>
+                  <td><span class='total_amount'><?php echo (int) $value['quantity'] * (int) $value['price']; ?></span></td>
                   <td>
                     <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-default plus_one">+1</button>
